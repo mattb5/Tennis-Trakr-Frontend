@@ -83,10 +83,10 @@ const onMaybeDeleteMatch = (event)=> {
 const onMaybeUpdateMatch = (event) => {
   event.preventDefault();
   let matchIDtoUpdate = $(event.target).data("match-id");
-  if ($("#update-opponent-name").val() != "")
-    {
+  // if ($("#update-opponent-name").val() != "")
+    // {
     let updatedOpponentName = $("#update-opponent-name").val();
-    }
+    // }
   api.updateMatch(matchIDtoUpdate, updatedOpponentName)
   .done(ui.success)
   .fail(ui.failure);

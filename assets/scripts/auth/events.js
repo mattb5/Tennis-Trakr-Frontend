@@ -107,6 +107,12 @@ const addHandlers = () => {
   // $('#patch-match').on('submit', onUpdateMatch);
   $(document).on('click','.deleteButtons', onMaybeDeleteMatch);
   $(document).on('click','.updateButtons', onMaybeUpdateMatch);
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+    })
+  $('#myModalSignIn').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+    })
 };
 //
 module.exports = {

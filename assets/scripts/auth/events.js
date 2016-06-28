@@ -54,26 +54,6 @@ const onCreateMatch = (event) => {
   .fail(ui.failure);
 };
 
-// const onDeleteMatch = (event) => {
-//   event.preventDefault();
-//   let deleteMatch = $("#match-ID-to-delete").val();
-//   console.log(deleteMatch);
-//   api.deleteMatch(deleteMatch)
-//   .done(ui.successDelete)
-//   .fail(ui.failureDelete);
-// };
-
-// const onUpdateMatch = (event) => {
-//   event.preventDefault();
-//   let matchIDtoUpdate = $("#patch-ID-to-delete").val();
-//   let updatedOpponentName = $("#update-opponent-name").val();
-//   console.log(matchIDtoUpdate);
-//   console.log(updatedOpponentName);
-//   api.updateMatch(matchIDtoUpdate, updatedOpponentName)
-//   .done(ui.success)
-//   .fail(ui.failure);
-// };
-
 const onMaybeDeleteMatch = (event)=> {
   event.preventDefault();
   let matchIDtoDelete = $(event.target).data("match-id");
@@ -88,7 +68,6 @@ const onMaybeUpdateMatch = (event) => {
     let updatedOpponentName = $("#update-opponent-name").val();
     let updatedMatchDate = $("#update-opponent-date").val();
     let updatedMatchResult= $("#update-opponent-result").val();
-    console.log(updatedMatchDate);
   api.updateMatch(matchIDtoUpdate, updatedOpponentName, updatedMatchDate, updatedMatchResult)
   .done(ui.success)
   .fail(ui.failure);
@@ -103,14 +82,9 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword);
   $('#get-matches').on('submit', onGetHistory);
   $('#create-match').on('submit', onCreateMatch);
-  // $('#delete-match').on('submit', onDeleteMatch);
-  // $('#patch-match').on('submit', onUpdateMatch);
   $(document).on('click','.deleteButtons', onMaybeDeleteMatch);
   $(document).on('click','.updateButtons', onMaybeUpdateMatch);
   $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').focus()
-    })
-  $('#myModalSignIn').on('shown.bs.modal', function () {
     $('#myInput').focus()
     })
 };

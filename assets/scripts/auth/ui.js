@@ -4,31 +4,31 @@ const app = require('../app.js');
 
 const success = (data) => {
   if (data) {
-    console.log(data);
+    // console.log(data);
   } else {
-    console.log('Success');
+    // console.log('Success');
   }
 };
 
 const failure = (error) => {
-  console.error(error);
+  // console.error(error);
 };
 
 
 
 const signInSuccess = (data) => {
   app.user = data.user;
-  console.log(app.user);
+  // console.log(app.user);
 };
 
 const signOutSuccess = () => {
-  console.log('User signed out successfully');
+  // console.log('User signed out successfully');
   app.user = null;
 };
 
 const getGamesSuccess = (data) => {
   app.matches = data.matches;
-  console.log(data);
+  // console.log(data);
   if (app.matches != undefined )
   {
     let matchHistory = "<table> <tr> <th> Opponent </th> <th>Date</th> <th> Result </th> <th> Delete </th> <th> Update </th> </tr>";
@@ -48,15 +48,6 @@ const getGamesSuccess = (data) => {
     $("#game-history").text("Current user does not have any matches, create a match!");
   }
 };
-
-
-
-// let displayBooks = function(matches){
-// let matchesListingTemplate = require('../templates/book-listing.handlebars');
-//
-//   $('.content').append(matchesListingTemplate(books));
-//   console.log(books)
-// };
 
 
 module.exports = {

@@ -80,10 +80,10 @@ const createMatch = function (opponentName) {
   });
 };
 
-const deleteMatch = function (deleteMatch) {
+const deleteMatch = function (matchIDtoDelete) {
   return $.ajax(
   {
-    url: app.host + '/matches/' + deleteMatch,
+    url: app.host + '/matches/' + matchIDtoDelete,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + app.user.token,
@@ -107,6 +107,10 @@ const updateMatch = function (matchIDtoUpdate, updatedOpponentName) {
           }
   });
 };
+
+
+
+
 
 module.exports = {
   signUp,

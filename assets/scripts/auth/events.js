@@ -58,10 +58,11 @@ const onDeleteMatch = (event) => {
   event.preventDefault();
   let deleteMatch = $("#match-ID-to-delete").val();
   console.log(deleteMatch);
-  console.log('matt is awesome');
   api.deleteMatch(deleteMatch)
-  .done(ui.success)
-  .fail(ui.failure);
+  .done(ui.successDelete)
+  // .fail($("#delete-match-message").text("cheese"));
+  // .fail(alert("cheese"));
+  .fail(ui.failureDelete);
 };
 
 const onUpdateMatch = (event) => {
@@ -75,6 +76,29 @@ const onUpdateMatch = (event) => {
   .fail(ui.failure);
 };
 
+const onMaybeDeleteMatch = (event)=> {
+  event.preventDefault();
+  let matchIDtoDelete = $(event.target).data("match-id");
+  console.log(matchIDtoDelete);
+  // let deleteMatch = $("#match-ID-to-delete").val();
+  // console.log(deleteMatch);
+  api.deleteMatch(matchIDtoDelete)
+  .done(ui.success)
+  .fail(ui.failure);
+};
+
+const onMaybeUpdateMatch = (event) => {
+  event.preventDefault();
+  let matchIDtoUpdate = $(event.target).data("match-id");
+  let updatedOpponentName = $("#update-opponent-name").val();
+  console.log(matchIDtoUpdate);
+  console.log(updatedOpponentName);
+  api.updateMatch(matchIDtoUpdate, updatedOpponentName)
+  .done(ui.success)
+  .fail(ui.failure);
+};
+
+
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
@@ -83,8 +107,10 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword);
   $('#opponent-name').on('submit', onGetHistory);
   $('#create-match').on('submit', onCreateMatch);
-  $('#delete-match').on('submit', onDeleteMatch);
+  // $('#delete-match').on('submit', onDeleteMatch);
   $('#patch-match').on('submit', onUpdateMatch);
+  $(document).on('click','.deleteButtons', onMaybeDeleteMatch);
+  $(document).on('click','.updateButtons', onMaybeUpdateMatch);
 
 };
 //

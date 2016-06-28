@@ -87,7 +87,7 @@ const onMaybeUpdateMatch = (event) => {
   let matchIDtoUpdate = $(event.target).data("match-id");
     let updatedOpponentName = $("#update-opponent-name").val();
     let updatedMatchDate = $("#update-opponent-date").val();
-    let updatedMatchResult= $("#update-opponent-date").val();
+    let updatedMatchResult= $("#update-opponent-result").val();
     console.log(updatedMatchDate);
   api.updateMatch(matchIDtoUpdate, updatedOpponentName, updatedMatchDate, updatedMatchResult)
   .done(ui.success)

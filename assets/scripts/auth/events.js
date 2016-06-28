@@ -105,7 +105,6 @@ const addHandlers = () => {
   // $('#patch-match').on('submit', onUpdateMatch);
   $(document).on('click','.deleteButtons', onMaybeDeleteMatch);
   $(document).on('click','.updateButtons', onMaybeUpdateMatch);
-
 };
 //
 module.exports = {

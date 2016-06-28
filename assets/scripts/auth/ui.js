@@ -29,16 +29,22 @@ const signOutSuccess = () => {
 const getGamesSuccess = (data) => {
   app.matches = data.matches;
   console.log(data);
-
-  let matchHistory = "";
-  for (let i = 0; i < app.matches.length; i++)
-    {
-      matchHistory = matchHistory +  app.matches[i].id + "   " + app.matches[i].opponent +
-      "<button type='delete' class='deleteButtons' data-match-id='" + app.matches[i].id + "'>Delete</button> <br></br>" +
-      "<button class='updateButtons' data-match-id='" + app.matches[i].id + "'>Update</button> <br></br>";
-
-    }
-  $("#game-history").html(matchHistory);
+  if (app.matches != undefined )
+  {
+    let matchHistory = "";
+      for (let i = 0; i < app.matches.length; i++)
+        {
+          matchHistory = matchHistory + "<tr><td>" + app.matches[i].opponent + "</td><td>" +
+          "<button type='delete' class='deleteButtons' data-match-id='" + app.matches[i].id + "'>Delete</button> <br></br>" + "</td><td>" +
+          "<button class='updateButtons' data-match-id='" + app.matches[i].id + "'>Update</button> </tr>";
+        }
+        matchHistory = matchHistory + "</table>"
+    $("#game-history").html(matchHistory);
+  }
+  else
+  {
+    $("#game-history").text("Current user does not have any matches, create a match!");
+  }
 };
 
 

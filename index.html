@@ -43,9 +43,37 @@
          </fieldset>
        </form>
 
-       <form id="opponent-name">
+       <br></br>
+       <br></br>
+
+       <form id="create-match">
          <fieldset>
-           <legend>Get History</legend>
+           <legend>Create Match by adding Opponents Name</legend>
+           <input type ="text" id="getOpponentName" placeholder="Opponent Name">
+           <input type="submit" name="submit" value="Create New Match">
+         </fieldset>
+       </form>
+
+       <br></br>
+       <br></br>
+
+       <form id="patch-match">
+         <fieldset>
+           <legend>Update Information</legend>
+           <!-- <input type ="text" id="patch-ID-to-delete" placeholder="Game ID#"> -->
+           <input type ="text" id="update-opponent-name" placeholder="Opponent Name">
+           <!-- <input type ="text" id="update-opponent-name" placeholder="Opponent Name to Update">
+           <input type ="text" id="update-opponent-name" placeholder="Opponent Name to Update"> -->
+           <!-- <input type="submit" name="submit" value="What game to be patched"> -->
+         </fieldset>
+       </form>
+
+       <br></br>
+       <br></br>
+
+       <form id="get-matches">
+         <fieldset>
+           <legend>Get Match History</legend>
            <input type="submit" name="submit" value="Get Match History">
          </fieldset>
        </form>
@@ -55,45 +83,12 @@
     <h2> Game History Display </h2>
     <h4 id="game-history"> </h4>
 
-      <br></br>
-      <br></br>
-
-
-  <form id="create-match">
-    <fieldset>
-      <legend>Create Match by adding Opponents Name</legend>
-      <input type ="text" id="getOpponentName" placeholder="Opponent Name">
-      <input type="submit" name="submit" value="Get Game History!">
-    </fieldset>
-  </form>
-
-
-      <br></br>
-      <br></br>
-
-  <form id="delete-match">
+  <!-- <form id="delete-match">
     <fieldset>
       <legend>Enter Match Number to Delete</legend>
       <input type ="text" id="match-ID-to-delete" placeholder="Game ID#">
       <input type="submit" name="submit" value="Insert Game to be Deleted!">
     </fieldset>
-  </form>
-
-  <p id="delete-match-message"> </p>
-      <br></br>
-      <br></br>
-
-
-  <form id="patch-match">
-    <fieldset>
-      <legend>Enter Match Number to Update</legend>
-      <input type ="text" id="patch-ID-to-delete" placeholder="Game ID#">
-      <input type ="text" id="update-opponent-name" placeholder="Opponent Name to Update">
-      <input type="submit" name="submit" value="What game to be patched">
-    </fieldset>
-  </form>
-
-
-
+  </form> -->
  </body>
 </html>

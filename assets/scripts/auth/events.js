@@ -47,41 +47,34 @@ const onGetHistory = (event) => {
 const onCreateMatch = (event) => {
   event.preventDefault();
   let opponentName = $("#getOpponentName").val();
-  console.log(opponentName);
-  console.log('matt is awesome');
   api.createMatch(opponentName)
   .done(ui.success)
   .fail(ui.failure);
 };
 
-const onDeleteMatch = (event) => {
-  event.preventDefault();
-  let deleteMatch = $("#match-ID-to-delete").val();
-  console.log(deleteMatch);
-  api.deleteMatch(deleteMatch)
-  .done(ui.successDelete)
-  // .fail($("#delete-match-message").text("cheese"));
-  // .fail(alert("cheese"));
-  .fail(ui.failureDelete);
-};
+// const onDeleteMatch = (event) => {
+//   event.preventDefault();
+//   let deleteMatch = $("#match-ID-to-delete").val();
+//   console.log(deleteMatch);
+//   api.deleteMatch(deleteMatch)
+//   .done(ui.successDelete)
+//   .fail(ui.failureDelete);
+// };
 
-const onUpdateMatch = (event) => {
-  event.preventDefault();
-  let matchIDtoUpdate = $("#patch-ID-to-delete").val();
-  let updatedOpponentName = $("#update-opponent-name").val();
-  console.log(matchIDtoUpdate);
-  console.log(updatedOpponentName);
-  api.updateMatch(matchIDtoUpdate, updatedOpponentName)
-  .done(ui.success)
-  .fail(ui.failure);
-};
+// const onUpdateMatch = (event) => {
+//   event.preventDefault();
+//   let matchIDtoUpdate = $("#patch-ID-to-delete").val();
+//   let updatedOpponentName = $("#update-opponent-name").val();
+//   console.log(matchIDtoUpdate);
+//   console.log(updatedOpponentName);
+//   api.updateMatch(matchIDtoUpdate, updatedOpponentName)
+//   .done(ui.success)
+//   .fail(ui.failure);
+// };
 
 const onMaybeDeleteMatch = (event)=> {
   event.preventDefault();
   let matchIDtoDelete = $(event.target).data("match-id");
-  console.log(matchIDtoDelete);
-  // let deleteMatch = $("#match-ID-to-delete").val();
-  // console.log(deleteMatch);
   api.deleteMatch(matchIDtoDelete)
   .done(ui.success)
   .fail(ui.failure);
@@ -90,9 +83,10 @@ const onMaybeDeleteMatch = (event)=> {
 const onMaybeUpdateMatch = (event) => {
   event.preventDefault();
   let matchIDtoUpdate = $(event.target).data("match-id");
-  let updatedOpponentName = $("#update-opponent-name").val();
-  console.log(matchIDtoUpdate);
-  console.log(updatedOpponentName);
+  if ($("#update-opponent-name").val() != "")
+    {
+    let updatedOpponentName = $("#update-opponent-name").val();
+    }
   api.updateMatch(matchIDtoUpdate, updatedOpponentName)
   .done(ui.success)
   .fail(ui.failure);
@@ -105,10 +99,10 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
-  $('#opponent-name').on('submit', onGetHistory);
+  $('#get-matches').on('submit', onGetHistory);
   $('#create-match').on('submit', onCreateMatch);
   // $('#delete-match').on('submit', onDeleteMatch);
-  $('#patch-match').on('submit', onUpdateMatch);
+  // $('#patch-match').on('submit', onUpdateMatch);
   $(document).on('click','.deleteButtons', onMaybeDeleteMatch);
   $(document).on('click','.updateButtons', onMaybeUpdateMatch);
 

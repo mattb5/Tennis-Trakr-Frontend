@@ -47,7 +47,9 @@ const onGetHistory = (event) => {
 const onCreateMatch = (event) => {
   event.preventDefault();
   let opponentName = $("#getOpponentName").val();
-  api.createMatch(opponentName)
+  let matchDate = $("#create-opponent-date").val();
+  let matchResult = $("#create-opponent-result").val();
+  api.createMatch(opponentName,matchDate, matchResult)
   .done(ui.success)
   .fail(ui.failure);
 };
@@ -83,11 +85,11 @@ const onMaybeDeleteMatch = (event)=> {
 const onMaybeUpdateMatch = (event) => {
   event.preventDefault();
   let matchIDtoUpdate = $(event.target).data("match-id");
-  // if ($("#update-opponent-name").val() != "")
-    // {
     let updatedOpponentName = $("#update-opponent-name").val();
-    // }
-  api.updateMatch(matchIDtoUpdate, updatedOpponentName)
+    let updatedMatchDate = $("#update-opponent-date").val();
+    let updatedMatchResult= $("#update-opponent-date").val();
+    console.log(updatedMatchDate);
+  api.updateMatch(matchIDtoUpdate, updatedOpponentName, updatedMatchDate, updatedMatchResult)
   .done(ui.success)
   .fail(ui.failure);
 };

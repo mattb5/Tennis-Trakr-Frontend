@@ -31,10 +31,12 @@ const getGamesSuccess = (data) => {
   console.log(data);
   if (app.matches != undefined )
   {
-    let matchHistory = "";
+    let matchHistory = "<table>";
       for (let i = 0; i < app.matches.length; i++)
         {
           matchHistory = matchHistory + "<tr><td>" + app.matches[i].opponent + "</td><td>" +
+          app.matches[i].date + "</td><td>" +
+          app.matches[i].result + "</td><td>" +
           "<button type='delete' class='deleteButtons' data-match-id='" + app.matches[i].id + "'>Delete</button> <br></br>" + "</td><td>" +
           "<button class='updateButtons' data-match-id='" + app.matches[i].id + "'>Update</button> </tr>";
         }

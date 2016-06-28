@@ -64,7 +64,7 @@ const getHistory = () => {
 };
 
 
-const createMatch = function (opponentName) {
+const createMatch = function (opponentName, matchDate, matchResult) {
   return $.ajax(
   {
     url: app.host + '/matches',
@@ -74,7 +74,9 @@ const createMatch = function (opponentName) {
     },
     data :{
           "match": {
-            "opponent": opponentName
+            "opponent": opponentName,
+            "date": matchDate,
+            "result": matchResult
             }
           }
   });
@@ -92,7 +94,7 @@ const deleteMatch = function (matchIDtoDelete) {
   );
 };
 
-const updateMatch = function (matchIDtoUpdate, updatedOpponentName) {
+const updateMatch = function (matchIDtoUpdate, updatedOpponentName, updatedMatchDate, updatedMatchResult) {
   return $.ajax(
   {
     url: app.host + '/matches/' + matchIDtoUpdate,
@@ -102,7 +104,9 @@ const updateMatch = function (matchIDtoUpdate, updatedOpponentName) {
     },
     data :{
           "match": {
-            "opponent": updatedOpponentName
+            "opponent": updatedOpponentName,
+            "date": updatedMatchDate,
+            "result" : updatedMatchResult
             }
           }
   });

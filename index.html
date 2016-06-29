@@ -38,8 +38,11 @@
                      <input type="password" name="credentials[password]" placeholder="Password">
                      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
                      <input type="submit" name="submit" value="Sign up!">
+                     <p id="signup-success"> </p>
                    </fieldset>
                  </form>
+
+                 <br> </br>
 
                  <form id="sign-in">
                    <fieldset>
@@ -47,15 +50,21 @@
                      <input type="text" name="credentials[email]" placeholder="Email">
                      <input type="password" name="credentials[password]" placeholder="Password">
                      <input type="submit" name="submit" value="Sign In">
+                     <p id="sign-in-success"> </p>
                    </fieldset>
                  </form>
+
+                 <br> </br>
 
                  <form id="sign-out">
                    <fieldset>
                      <legend>Sign Out!</legend>
                      <input class="sign-out" type="submit" value="Sign Out">
                    </fieldset>
+                    <p id="sign-out-success"> </p>
                  </form>
+
+                 <br> </br>
 
                  <form id="change-password">
                    <fieldset>
@@ -63,6 +72,7 @@
                      <input type="password" name="passwords[old]" placeholder="Current Password">
                      <input type="password" name="passwords[new]" placeholder="New Password">
                      <input type="submit" name="submit" value="Change Password">
+                     <p id="password-changed-success"> </p>
                    </fieldset>
                  </form>
 
@@ -121,6 +131,7 @@
            <input type ="text" id="create-opponent-result" placeholder="Match Results">
            <input type="submit" name="submit" value="Create New Match">
          </fieldset>
+         <p id="match-created-success"> </p>
        </form>
 
        <br></br>
@@ -128,14 +139,11 @@
        <form id="patch-match">
          <fieldset>
            <legend>Update Information - update all fields of match </legend>
-           <!-- <input type ="text" id="patch-ID-to-delete" placeholder="Game ID#"> -->
            <input type ="text" id="update-opponent-name" placeholder="Opponent Name">
            <input type ="text" id="update-opponent-date" placeholder="Match Date">
            <input type ="text" id="update-opponent-result" placeholder="Match Results">
-           <!-- <input type ="text" id="update-opponent-name" placeholder="Opponent Name to Update">
-           <input type ="text" id="update-opponent-name" placeholder="Opponent Name to Update"> -->
-           <!-- <input type="submit" name="submit" value="What game to be patched"> -->
          </fieldset>
+         <p id="match-updated-success"> </p>
        </form>
 
        <br></br>
@@ -150,7 +158,9 @@
 
 
     <h2> Game History Display </h2>
+    <p id="match-deleted-success"> </p>
     <h4 id="game-history"> </h4>
+
 
   <!-- <form id="delete-match">
     <fieldset>

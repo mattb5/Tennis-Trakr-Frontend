@@ -10,7 +10,7 @@ const onSignUp = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.signUp(data)
-  .done(ui.success)
+  .done(ui.successSignUp)
   .fail(ui.failure);
 };
 
@@ -33,7 +33,7 @@ const onChangePassword = (event) => {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.changePassword(data)
-  .done(ui.success)
+  .done(ui.successChangePassword)
   .fail(ui.failure);
 };
 
@@ -50,7 +50,7 @@ const onCreateMatch = (event) => {
   let matchDate = $("#create-opponent-date").val();
   let matchResult = $("#create-opponent-result").val();
   api.createMatch(opponentName,matchDate, matchResult)
-  .done(ui.success)
+  .done(ui.successCreateMatch)
   .fail(ui.failure);
 };
 
@@ -58,7 +58,7 @@ const onMaybeDeleteMatch = (event)=> {
   event.preventDefault();
   let matchIDtoDelete = $(event.target).data("match-id");
   api.deleteMatch(matchIDtoDelete)
-  .done(ui.success)
+  .done(ui.successDeleteMatch)
   .fail(ui.failure);
 };
 
@@ -69,7 +69,7 @@ const onMaybeUpdateMatch = (event) => {
     let updatedMatchDate = $("#update-opponent-date").val();
     let updatedMatchResult= $("#update-opponent-result").val();
   api.updateMatch(matchIDtoUpdate, updatedOpponentName, updatedMatchDate, updatedMatchResult)
-  .done(ui.success)
+  .done(ui.successUpdateMatch)
   .fail(ui.failure);
 };
 

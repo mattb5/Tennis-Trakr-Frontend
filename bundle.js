@@ -61,7 +61,7 @@ webpackJsonp([0],[
 	var onSignUp = function onSignUp(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
-	  api.signUp(data).done(ui.success).fail(ui.failure);
+	  api.signUp(data).done(ui.successSignUp).fail(ui.failure);
 	};
 
 	var onSignIn = function onSignIn(event) {
@@ -78,7 +78,7 @@ webpackJsonp([0],[
 	var onChangePassword = function onChangePassword(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
-	  api.changePassword(data).done(ui.success).fail(ui.failure);
+	  api.changePassword(data).done(ui.successChangePassword).fail(ui.failure);
 	};
 
 	var onGetHistory = function onGetHistory(event) {
@@ -91,13 +91,13 @@ webpackJsonp([0],[
 	  var opponentName = $("#getOpponentName").val();
 	  var matchDate = $("#create-opponent-date").val();
 	  var matchResult = $("#create-opponent-result").val();
-	  api.createMatch(opponentName, matchDate, matchResult).done(ui.success).fail(ui.failure);
+	  api.createMatch(opponentName, matchDate, matchResult).done(ui.successCreateMatch).fail(ui.failure);
 	};
 
 	var onMaybeDeleteMatch = function onMaybeDeleteMatch(event) {
 	  event.preventDefault();
 	  var matchIDtoDelete = $(event.target).data("match-id");
-	  api.deleteMatch(matchIDtoDelete).done(ui.success).fail(ui.failure);
+	  api.deleteMatch(matchIDtoDelete).done(ui.successDeleteMatch).fail(ui.failure);
 	};
 
 	var onMaybeUpdateMatch = function onMaybeUpdateMatch(event) {
@@ -106,7 +106,7 @@ webpackJsonp([0],[
 	  var updatedOpponentName = $("#update-opponent-name").val();
 	  var updatedMatchDate = $("#update-opponent-date").val();
 	  var updatedMatchResult = $("#update-opponent-result").val();
-	  api.updateMatch(matchIDtoUpdate, updatedOpponentName, updatedMatchDate, updatedMatchResult).done(ui.success).fail(ui.failure);
+	  api.updateMatch(matchIDtoUpdate, updatedOpponentName, updatedMatchDate, updatedMatchResult).done(ui.successUpdateMatch).fail(ui.failure);
 	};
 
 	var addHandlers = function addHandlers() {
@@ -342,12 +342,36 @@ webpackJsonp([0],[
 
 	var app = __webpack_require__(6);
 
-	var success = function success(data) {
+	var successSignUp = function successSignUp(data) {
 	  if (data) {
 	    // console.log(data);
+	    $("#signup-success").text("User has successfully signed up");
+	    $("#signup-success").show();
+	    setTimeout(function () {
+	      $("#signup-success").hide();
+	    }, 5000);
 	  } else {
-	      // console.log('Success');
-	    }
+	    // console.log('Success');
+	    $("#signup-success").text("User has successfully signed up");
+	  }
+	};
+
+	var successChangePassword = function successChangePassword(data) {
+	  if (data) {
+	    // console.log(data);
+	    $("#password-changed-success").text("User has successfully changed password");
+	    $("#password-changed-success").show();
+	    setTimeout(function () {
+	      $("#password-changed-success").hide();
+	    }, 5000);
+	  } else {
+	    // console.log('Success');
+	    $("#password-changed-success").text("User has successfully changed password");
+	    $("#password-changed-success").show();
+	    setTimeout(function () {
+	      $("#password-changed-success").hide();
+	    }, 5000);
+	  }
 	};
 
 	var failure = function failure(error) {
@@ -356,12 +380,22 @@ webpackJsonp([0],[
 
 	var signInSuccess = function signInSuccess(data) {
 	  app.user = data.user;
-	  // console.log(app.user);
+	  $("#sign-in-success").text("User has successfully signed in");
+	  $("#sign-in-success").show();
+	  setTimeout(function () {
+	    $("#sign-in-success").hide();
+	  }, 5000);
 	};
 
 	var signOutSuccess = function signOutSuccess() {
 	  // console.log('User signed out successfully');
 	  app.user = null;
+	  $("#sign-out-success").text("User has successfully signed out");
+	  $("#sign-out-success").show();
+	  setTimeout(function () {
+	    $("#sign-out-success").hide();
+	  }, 5000);
+	  $("#game-history").text("");
 	};
 
 	var getGamesSuccess = function getGamesSuccess(data) {
@@ -379,12 +413,71 @@ webpackJsonp([0],[
 	  }
 	};
 
+	var successCreateMatch = function successCreateMatch(data) {
+	  if (data) {
+	    // console.log(data);
+	    $("#match-created-success").text("User has created a match, click Get Match History to display");
+	    $("#match-created-success").show();
+	    setTimeout(function () {
+	      $("#match-created-success").hide();
+	    }, 5000);
+	  } else {
+	    // console.log('Success');
+	    $("#match-created-success").text("User has created a match, click Get Match History to display");
+	    $("#match-created-success").show();
+	    setTimeout(function () {
+	      $("#match-created-success").hide();
+	    }, 5000);
+	  }
+	};
+
+	var successUpdateMatch = function successUpdateMatch(data) {
+	  if (data) {
+	    // console.log(data);
+	    $("#match-updated-success").text("User has updated a match, click Get Match History to display");
+	    $("#match-updated-success").show();
+	    setTimeout(function () {
+	      $("#match-updated-success").hide();
+	    }, 5000);
+	  } else {
+	    // console.log('Success');
+	    $("#match-updated-success").text("User has updated a match, click Get Match History to display ");
+	    $("#match-updated-success").show();
+	    setTimeout(function () {
+	      $("#match-updated-success").hide();
+	    }, 5000);
+	  }
+	};
+
+	var successDeleteMatch = function successDeleteMatch(data) {
+	  if (data) {
+	    // console.log(data);
+	    $("#match-deleted-success").text("User has deleted a match, click Get Match History to display");
+	    $("#match-deleted-success").show();
+	    setTimeout(function () {
+	      $("#match-deleted-success").hide();
+	    }, 5000);
+	  } else {
+	    // console.log('Success');
+	    $("#match-deleted-success").text("User has deleted a match, click Get Match History to display");
+	    $("#match-deleted-success").show();
+	    setTimeout(function () {
+	      $("#match-deleted-success").hide();
+	    }, 5000);
+	  }
+	};
+
 	module.exports = {
-	  success: success,
+	  // success,
 	  failure: failure,
 	  signInSuccess: signInSuccess,
 	  signOutSuccess: signOutSuccess,
-	  getGamesSuccess: getGamesSuccess
+	  getGamesSuccess: getGamesSuccess,
+	  successChangePassword: successChangePassword,
+	  successSignUp: successSignUp,
+	  successCreateMatch: successCreateMatch,
+	  successUpdateMatch: successUpdateMatch,
+	  successDeleteMatch: successDeleteMatch
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
